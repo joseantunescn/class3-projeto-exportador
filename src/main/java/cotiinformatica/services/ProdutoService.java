@@ -38,6 +38,16 @@ public class ProdutoService {
                 return;
         }
 
+        try {
+
+            produtoRepository.exportarDados(produto);
+            JOptionPane.showMessageDialog(null, "Operação realizada com sucesso!");
+
+        }
+        catch(Exception e) {
+            System.out.println("ERRO: " + e.getMessage());
+        }
+
     }
 
 }
