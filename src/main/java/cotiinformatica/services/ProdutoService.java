@@ -1,6 +1,9 @@
 package cotiinformatica.services;
 
 import cotiinformatica.entities.Produto;
+import cotiinformatica.interfaces.ProdutoRepository;
+import cotiinformatica.repositories.ProdutoJsonRepository;
+import cotiinformatica.repositories.ProdutoXmlRepository;
 
 import javax.swing.*;
 import java.util.Date;
@@ -19,16 +22,20 @@ public class ProdutoService {
 
         var opcao = JOptionPane.showInputDialog("Informe 1 para xml ou 2 para json:");
 
+        ProdutoRepository produtoRepository;
+
         switch (Integer.parseInt(opcao)) {
             case 1:
+                produtoRepository = new ProdutoXmlRepository();
                 break;
 
             case 2:
+                produtoRepository = new ProdutoJsonRepository();
                 break;
 
             default:
                 JOptionPane.showInputDialog(null, "Opção inválida");
-                break;
+                return;
         }
 
     }
