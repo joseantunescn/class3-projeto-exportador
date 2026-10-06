@@ -13,7 +13,7 @@ public class ProdutoXmlRepository implements ProdutoRepository  {
 
         var mapper = new XmlMapper();
 
-        mapper.writerWithDefaultPrettyPrinter().writeValue(new File("c:\\temp\\produto_"+ produto.getId() +".json"),
+        mapper.writerWithDefaultPrettyPrinter().writeValue(new File("c:\\temp\\produto_"+ produto.getId() +".xml"),
                 produto
         );
 
